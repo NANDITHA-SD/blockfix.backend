@@ -10,6 +10,7 @@ const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5000;
+const renderURL = process.env.RENDER_EXTERNAL_URL;
 
 
 
@@ -397,4 +398,6 @@ app.get('/api/fund-pool', async (req, res) => {
 // Fallback: update complaint votes/admin actions via other endpoints already present.
 
 // Start server
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => {
+  console.log(`🚀 Server running at ${renderURL}`);
+});
